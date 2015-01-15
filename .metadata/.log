@@ -15,3 +15,111 @@ Command-line arguments:  -os macosx -ws cocoa -arch x86 -keyring /Users/Mich/.ec
 !MESSAGE Cannot bind to an undefined command: plug-in='com.appcelerator.titanium.android.ui', id='com.appcelerator.titanium.mobile.command.run_on_device.android'
 !SUBENTRY 1 org.eclipse.ui 2 0 2015-01-14 21:31:00.771
 !MESSAGE Cannot bind to an undefined command: plug-in='com.appcelerator.titanium.android.ui', id='com.appcelerator.titanium.mobile.command.debug_on_device.android'
+
+!ENTRY org.eclipse.core.jobs 4 2 2015-01-14 21:54:30.342
+!MESSAGE An internal error occurred during: "Configuring SDK".
+!STACK 0
+org.eclipse.swt.SWTException: Device is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4397)
+	at org.eclipse.swt.SWT.error(SWT.java:4312)
+	at org.eclipse.swt.SWT.error(SWT.java:4283)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1076)
+	at org.eclipse.swt.widgets.Display.asyncExec(Display.java:587)
+	at com.appcelerator.titanium.ui.wizard.ProgressDistributor.worked(ProgressDistributor.java:123)
+	at org.eclipse.core.runtime.SubMonitor$RootInfo.worked(SubMonitor.java:284)
+	at org.eclipse.core.runtime.SubMonitor.done(SubMonitor.java:554)
+	at org.eclipse.core.runtime.SubMonitor.cleanupActiveChild(SubMonitor.java:758)
+	at org.eclipse.core.runtime.SubMonitor.done(SubMonitor.java:551)
+	at com.appcelerator.titanium.android.internal.ui.configuration.AndroidSDKConfigurer.installReleases(AndroidSDKConfigurer.java:343)
+	at com.appcelerator.titanium.android.internal.ui.configuration.AndroidSDKConfigurer.installSDKs(AndroidSDKConfigurer.java:271)
+	at com.appcelerator.titanium.android.internal.ui.configuration.AndroidSDKConfigurer.doConfigure(AndroidSDKConfigurer.java:63)
+	at com.appcelerator.titanium.ui.mobile.BaseMobilePlatformConfigurer.configure(BaseMobilePlatformConfigurer.java:44)
+	at com.appcelerator.titanium.ui.mobile.PlatformsInstallManager$3.run(PlatformsInstallManager.java:171)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.core.jobs 4 2 2015-01-14 21:54:30.415
+!MESSAGE An internal error occurred during: "Show Platform Configuration Wizard".
+!STACK 0
+org.eclipse.swt.SWTException: Device is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4397)
+	at org.eclipse.swt.SWT.error(SWT.java:4312)
+	at org.eclipse.swt.SWT.error(SWT.java:4283)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1076)
+	at org.eclipse.swt.widgets.Display.asyncExec(Display.java:587)
+	at com.appcelerator.titanium.ui.wizard.PlatformsConfigurationWizard.installCompleted(PlatformsConfigurationWizard.java:138)
+	at com.appcelerator.titanium.ui.mobile.PlatformsInstallManager.fireInstallCompleteEvent(PlatformsInstallManager.java:238)
+	at com.appcelerator.titanium.ui.mobile.PlatformsInstallManager.access$0(PlatformsInstallManager.java:234)
+	at com.appcelerator.titanium.ui.mobile.PlatformsInstallManager$2.run(PlatformsInstallManager.java:133)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.core.jobs 4 2 2015-01-14 21:54:30.990
+!MESSAGE An internal error occurred during: "Sending Analytics Ping ...".
+!STACK 0
+java.lang.NullPointerException
+	at com.aptana.usage.internal.DefaultAnalyticsEventHandler.getAnalyticsLogger(DefaultAnalyticsEventHandler.java:207)
+	at com.aptana.usage.internal.DefaultAnalyticsEventHandler.sendEventSync(DefaultAnalyticsEventHandler.java:241)
+	at com.aptana.usage.internal.DefaultAnalyticsEventHandler$1.run(DefaultAnalyticsEventHandler.java:75)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SESSION 2015-01-15 15:42:07.647 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_65
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -keyring /Users/Mich/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -keyring /Users/Mich/.eclipse_keyring -consoleLog -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2015-01-15 15:42:13.206
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.ui 2 0 2015-01-15 15:42:13.366
+!MESSAGE Warnings while parsing the images from the 'org.eclipse.ui.commandImages' extension point.
+!SUBENTRY 1 org.eclipse.ui 2 0 2015-01-15 15:42:13.366
+!MESSAGE Cannot bind to an undefined command: plug-in='com.appcelerator.titanium.android.ui', id='com.appcelerator.titanium.mobile.command.run_on_device.android'
+!SUBENTRY 1 org.eclipse.ui 2 0 2015-01-15 15:42:13.366
+!MESSAGE Cannot bind to an undefined command: plug-in='com.appcelerator.titanium.android.ui', id='com.appcelerator.titanium.mobile.command.debug_on_device.android'
+
+!ENTRY org.eclipse.core.jobs 4 2 2015-01-15 15:47:56.529
+!MESSAGE An internal error occurred during: "Mobile Modules".
+!STACK 0
+java.lang.IllegalMonitorStateException: attempt to unlock read lock, not locked by current thread
+	at java.util.concurrent.locks.ReentrantReadWriteLock$Sync.unmatchedUnlockException(ReentrantReadWriteLock.java:387)
+	at java.util.concurrent.locks.ReentrantReadWriteLock$Sync.tryReleaseShared(ReentrantReadWriteLock.java:374)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer.releaseShared(AbstractQueuedSynchronizer.java:1317)
+	at java.util.concurrent.locks.ReentrantReadWriteLock$ReadLock.unlock(ReentrantReadWriteLock.java:828)
+	at com.aptana.index.core.Index.exitRead(Index.java:417)
+	at com.aptana.index.core.Index.query(Index.java:565)
+	at com.aptana.js.internal.core.index.JSIndexReader.getTypeNames(JSIndexReader.java:590)
+	at com.appcelerator.titanium.alloy.internal.core.build.ViewIndexingParticipant.ensureDollarTypeExists(ViewIndexingParticipant.java:83)
+	at com.appcelerator.titanium.alloy.internal.core.build.ViewIndexingParticipant.index(ViewIndexingParticipant.java:60)
+	at com.aptana.index.core.IndexRequestJob.indexFileStores(IndexRequestJob.java:205)
+	at com.aptana.index.core.IndexContainerJob.run(IndexContainerJob.java:114)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY com.aptana.core 4 1 2015-01-15 15:48:14.762
+!MESSAGE sudo: a password is required
+
+!ENTRY org.eclipse.core.jobs 4 2 2015-01-15 15:49:59.630
+!MESSAGE An internal error occurred during: "Sending Analytics Ping ...".
+!STACK 0
+java.lang.NullPointerException
+	at com.aptana.usage.internal.DefaultAnalyticsEventHandler.getAnalyticsLogger(DefaultAnalyticsEventHandler.java:207)
+	at com.aptana.usage.internal.DefaultAnalyticsEventHandler.sendEventSync(DefaultAnalyticsEventHandler.java:241)
+	at com.aptana.usage.internal.DefaultAnalyticsEventHandler$1.run(DefaultAnalyticsEventHandler.java:75)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SESSION 2015-01-15 15:50:00.090 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_65
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -keyring /Users/Mich/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -keyring /Users/Mich/.eclipse_keyring -consoleLog -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2015-01-15 15:50:04.351
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.ui 2 0 2015-01-15 15:50:04.471
+!MESSAGE Warnings while parsing the images from the 'org.eclipse.ui.commandImages' extension point.
+!SUBENTRY 1 org.eclipse.ui 2 0 2015-01-15 15:50:04.471
+!MESSAGE Cannot bind to an undefined command: plug-in='com.appcelerator.titanium.android.ui', id='com.appcelerator.titanium.mobile.command.run_on_device.android'
+!SUBENTRY 1 org.eclipse.ui 2 0 2015-01-15 15:50:04.471
+!MESSAGE Cannot bind to an undefined command: plug-in='com.appcelerator.titanium.android.ui', id='com.appcelerator.titanium.mobile.command.debug_on_device.android'

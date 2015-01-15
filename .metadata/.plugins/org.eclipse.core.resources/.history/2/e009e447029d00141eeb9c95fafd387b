@@ -1,0 +1,14 @@
+// background color
+Titanium.UI.setBackgroundColor('#fff');
+
+var mainWin = Ti.UI.createWindow({
+	title: "What are your questions?",
+	backgroundColor: ("#fff")
+	});
+
+var navWindow = Ti.UI.iOS.createNavigationWindow({
+	window: mainWin
+});
+var loadjson = require("json");
+mainWin.add(questionTable);
+navWindow.open();
