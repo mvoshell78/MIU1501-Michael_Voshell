@@ -1,7 +1,5 @@
 // background color
 Titanium.UI.setBackgroundColor('#fff');
-
-// local variables to help define label sizes accros platforms
 var pageHeight = Ti.Platform.displayCaps.platformHeight;
 var pageWidth = Ti.Platform.displayCaps.platformWidth;
 
@@ -11,13 +9,21 @@ var mainWin = Ti.UI.createWindow({
 	backgroundColor: ("#fff")
 	});
 
+
+
 // creating a nav window
 var navWindow = Ti.UI.iOS.createNavigationWindow({
 	window: mainWin
 });
 
-// loading the json.js file 
-var loadJson = require("json");
+
+
+
+
+
+
+// adding table to main window 
+mainWin.add(questionTable);
 
 // calling nav window
 navWindow.open();

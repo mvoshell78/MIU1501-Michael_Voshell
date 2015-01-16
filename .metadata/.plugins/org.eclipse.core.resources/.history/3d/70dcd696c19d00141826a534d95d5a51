@@ -1,0 +1,96 @@
+// background color
+Titanium.UI.setBackgroundColor('#fff');
+var pageHeight = Ti.Platform.displayCaps.platformHeight;
+var pageWidth = Ti.Platform.displayCaps.platformWidth;
+var loadJson = require(json);
+// initial window for app
+var mainWin = Ti.UI.createWindow({
+	title: "What are your questions?",
+	backgroundColor: ("#fff")
+	});
+
+
+
+// creating a nav window
+var navWindow = Ti.UI.iOS.createNavigationWindow({
+	window: mainWin
+});
+
+
+//function to add answers to second screen
+var getAnswer = function(dataSource){
+	console.log(dataSource.answer);
+	// creatng second window
+var winTwo = Ti.UI.createWindow({
+	title: "These are your answers!",
+	background: ("#fff")
+});
+// creating a view to hold label
+var txtView = Ti.UI.createView({
+	backgroundColor: ("#fff"),
+	Top: 30,
+	width: pageWidth - 30,
+	height: pageHeight - 30
+
+});
+
+// creating a text label for winTwo
+var txtLabel = Ti.UI.createLabel({
+	top: 10,
+	text:dataSource.answer,
+	font: {fontSize : 22, fontFamily: "hevetical"}
+});
+
+//adding label to view
+	txtView.add(txtLabel);
+	//adding view to window
+	winTwo.add(txtView);
+	//calling window through navwindow
+	navWindow.openWindow(winTwo);
+};
+
+
+//creating table 
+var questionTable = Ti.UI.createTableView({
+	top:20
+});
+
+// creating table section
+var questionSection = Ti.UI.createTableViewSection({
+	headerTitle : qAndA.MichVoshell.Headtitle
+	
+});
+
+// loop to populate table
+for (i = 0, j = qAndA.MichVoshell.mainQuestions.length; i < j; i++){
+	console.log(qAndA.MichVoshell.mainQuestions[i].questions);
+	
+	// rows for the sections in the table 
+	var rows = Ti.UI.createTableViewRow({
+		title: qAndA.MichVoshell.mainQuestions[i].questions,
+		answer: qAndA.MichVoshell.mainQuestions[i].answers,
+		hasChild: true
+	});
+	// adding the data to the table
+	var allSection = [questionSection];
+	questionSection.add(rows);
+	questionTable.setData(allSection);
+	questionTable.add(questionSection);
+
+};
+
+
+
+// event listener to make the table do
+mainWin.addEventListener("click",function(event){
+	
+	getAnswer(event.source);
+
+});
+
+
+// adding table to main window 
+mainWin.add(questionTable);
+
+// calling nav window
+navWindow.open();
