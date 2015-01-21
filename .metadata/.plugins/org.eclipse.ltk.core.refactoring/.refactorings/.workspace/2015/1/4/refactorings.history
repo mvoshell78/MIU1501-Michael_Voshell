@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;Voshell_Michaell_InfoApp/Resources/json&apos;" deleteContents="false" description="Delete resource &apos;Voshell_Michaell_InfoApp/Resources/json&apos;" element1="/Voshell_Michaell_InfoApp/Resources/json" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1421870533864"/>
+</session>

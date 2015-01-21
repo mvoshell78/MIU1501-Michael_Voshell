@@ -1,6 +1,0 @@
-// background color
-Titanium.UI.setBackgroundColor('#000');
-Ti.UI.createWindow({
-	
-	
-});
