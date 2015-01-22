@@ -1,0 +1,229 @@
+// background color
+Titanium.UI.setBackgroundColor('#fff');
+
+
+var json = {
+			"recipies" :{
+					Headtitle: " Recipies",
+					"myRecipies":
+				[
+					{
+					"name" : "Green Chili",
+					"ingredients" : " 2 pounds diced pork or chicken \n 1 large can whole green chillies \n 1 pounds small potatoes \n 2 tbl spoons chicken stock \n 1 can rotell tomatoes \n 1 tsp cumin \n 1 pinch of salt or to taste\n 2-3 empty chilli cans of water",
+					"optionalIngredients" : " Sourcream\n Shredded cheese\n Tortilas",
+					"directions" : "1. In a large pot, cook pork till lightly white don't over cook.\n2. Once the meat is white Add salt, cumin, bullion, chillies(whole), Rotels and water., \n3. Bring to a boil, \n4. Add potatoes, \n5. .Let simmer for 2-3 hours or till potatoes are falling apart and thickening the stew",
+					"desc" : " Green Chili is a classic south western dish. full of flavor, Mild spice. Serve as a stew, over beans or wrapped in a tortilla.",
+					"color": "#A32929"
+					},
+				]	
+			}
+	};
+	
+	
+// local variables to help define label sizes accros platforms
+var pageHeight = Ti.Platform.displayCaps.platformHeight;
+var pageWidth = Ti.Platform.displayCaps.platformWidth;
+//  var to make views dynamic
+var rowHeight = (pageHeight - 62) /5;
+var rightAlign = pageWidth/25;
+var fontSize = 27;
+
+// initial window for app
+var mainWin = Ti.UI.createWindow({
+	title: "Mich's Recipies",
+	backgroundColor: ("#fff")
+	});
+
+// funtion to open window after something has been clicked
+
+var recOpen = function(source){
+	var i = source;
+	
+	recipieWin = Ti.UI.createWindow({
+	backgroundColor: ("#fff"),
+	title : json.recipies.myRecipies[i].name
+});
+var recView = Ti.UI.createView({
+	title : source,
+	height : pageHeight,
+	width : pageWidth,
+	backgroundColor : json.recipies.myRecipies[i].color
+	
+});
+var ingLabel = Ti.UI.createLabel({
+	text : json.recipies.myRecipies[i].ingredients,
+	font: {fontSize: 16, fontFamily: "Avenir Next" },
+	top : rowHeight / 3,
+	color: "white",
+	left : rightAlign
+	
+	
+});
+var dirLabel = Ti.UI.createLabel({
+	text : json.recipies.myRecipies[i].directions,
+	font: {fontSize: 16, fontFamily: "Avenir Next" },
+	top : rowHeight / 3,
+	color: "white",
+	top : ingLabel.height
+	
+});
+console.log(json.recipies.myRecipies[i].name);
+console.log(json.recipies.myRecipies[i].ingredients);
+recView.add(ingLabel,dirLabel);
+recipieWin.add(recView);
+navWindow.openWindow(recipieWin);
+};	
+
+
+	
+// views for recipie options
+
+//	Green Chili
+var greenChili = Ti.UI.createView({
+	title: "0",
+	height: rowHeight,
+	width: pageWidth,
+	top : 0,
+	backgroundColor: "#A32929"
+});
+var greenChiliLabel = Ti.UI.createLabel({
+	text : "Greeen Chili",
+	title : "Green Chili",
+	font: {fontSize: fontSize, fontFamily: "Avenir Next" },
+	top : rowHeight / 3,
+	color: "white",
+	right: rightAlign
+	});
+var greenChiliPhoto = Ti.UI.createImageView({
+	image: "images/greenchili.jpg",
+	title: "Green Chili",
+	left :0,
+	height : rowHeight,
+	width : pageWidth/3
+});
+
+//	thePot
+var thePot = Ti.UI.createView({
+	title: "1",
+	height: rowHeight,
+	width: pageWidth,
+	top : greenChili.height,
+	backgroundColor: "#297A53"
+});
+var thePotLabel = Ti.UI.createLabel({
+	text : "The Pot",
+	title : "The Pot",
+	font: {fontSize: fontSize, fontFamily: "Avenir Next" },
+	top : rowHeight / 3,
+	color: "white",
+	right: rightAlign
+	});
+var thePotPhoto = Ti.UI.createImageView({
+	image: "images/thepot.jpg",
+	title: "The Pot",
+	left :0,
+	height : rowHeight,
+	width : pageWidth/3
+});
+
+//	jalapeno corn bread
+var jalapenoCornBread = Ti.UI.createView({
+	title: "Jalapeno Corn Bread",
+	height: rowHeight,
+	width: pageWidth,
+	top : greenChili.height + thePot.height,
+	backgroundColor: "#A16B36"
+});
+var jalapenoCornBreadLabel = Ti.UI.createLabel({
+	text : "Jal. Corn Bread",
+	title : "Jalapeno Corn Bread",
+	font: {fontSize: fontSize, fontFamily: "Avenir Next" },
+	top : rowHeight / 3,
+	color: "white",
+	right: rightAlign
+	});
+var jalapenoCornBreadPhoto = Ti.UI.createImageView({
+	image: "images/jalapenoCornBread.jpg",
+	title: "Jalapeno Corn Bread",
+	left :0,
+	height : rowHeight,
+	width : pageWidth/3
+});
+
+//	Tortilla Soup
+var tortillaSoup = Ti.UI.createView({
+	title: "Tortilla Soup",
+	height: rowHeight,
+	width: pageWidth,
+	top : greenChili.height + thePot.height +jalapenoCornBread.height,
+	backgroundColor: "#CFCB6E"
+});
+var tortillaSoupLabel = Ti.UI.createLabel({
+	text : "Tortilla Soup",
+	title : "Tortilla Soup",
+	font: {fontSize: fontSize, fontFamily: "Avenir Next" },
+	top : rowHeight / 3,
+	color: "white",
+	right: rightAlign
+	});
+var tortillaSoupPhoto = Ti.UI.createImageView({
+	image: "images/tortillaSoup.jpg",
+	title: "Tortilla Soup",
+	left :0,
+	height : rowHeight,
+	width : pageWidth/3
+});
+
+//	Chili Con Carne
+var chiliConCarne = Ti.UI.createView({
+	title: "Chili Con Carne",
+	height: rowHeight,
+	width: pageWidth,
+	top : greenChili.height + thePot.height +jalapenoCornBread.height + tortillaSoup.height,
+	backgroundColor: "#3796A4"
+});
+var chiliConCarneLabel = Ti.UI.createLabel({
+	text : "Chili Con Carne",
+	title : "Chili Con Carne",
+	font: {fontSize: fontSize, fontFamily: "Avenir Next" },
+	top : rowHeight / 3,
+	color: "white",
+	right: rightAlign
+	});
+var chiliConCarnePhoto = Ti.UI.createImageView({
+	image: "images/chiliConCarne.jpg",
+	title: "Chili Con Carne",
+	left :0,
+	height : rowHeight,
+	width : pageWidth/3
+});
+
+// creating a nav window
+var navWindow = Ti.UI.iOS.createNavigationWindow({
+	window: mainWin
+});
+
+// loading the json.js file 
+var loadJson = require("json");
+
+//adding labels and photos to views
+greenChili.add(greenChiliLabel,greenChiliPhoto);
+thePot.add(thePotLabel, thePotPhoto);
+jalapenoCornBread.add(jalapenoCornBreadLabel, jalapenoCornBreadPhoto);
+tortillaSoup.add(tortillaSoupLabel, tortillaSoupPhoto);
+chiliConCarne.add(chiliConCarneLabel, chiliConCarnePhoto);
+
+// adding views to windows
+mainWin.add(greenChili, thePot, jalapenoCornBread, tortillaSoup, chiliConCarne );
+
+
+
+// calling nav window
+navWindow.open();
+
+// event listener
+mainWin.addEventListener("click",function(event){
+	
+	recOpen(event.source.title);
+	
+});

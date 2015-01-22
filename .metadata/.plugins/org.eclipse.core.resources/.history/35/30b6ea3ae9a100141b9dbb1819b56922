@@ -1,0 +1,313 @@
+// background color
+Titanium.UI.setBackgroundColor('#fff');
+
+
+var json = {
+			"recipies" :{
+					Headtitle: " Recipies",
+					"myRecipies":
+				[
+					{
+					"name" : "Green Chili",
+					"time" : "Prep Time: 10 Minutes\nCook Time: 2 hours\n ",
+					"ing" : "Ingredients\n",
+					"ingredients" : " 2 pounds diced pork or chicken \n 1 large can whole green chillies \n 1 pounds small potatoes \n 2 tbl spoons chicken stock \n 1 can rotell tomatoes \n 1 tsp cumin \n 1 pinch of salt or to taste\n 2-3 empty chilli cans of water\n",
+					"oIng" : "Optional Ingredients\n ",
+					"optionalIngredients" : " Sourcream\n Shredded cheese\n Tortilas\n",
+					"dir" : "Directions\n",
+					"directions" : "1. In a large pot, cook pork till lightly white don't over cook.\n\n2. Once the meat is white Add salt, cumin, bullion, chillies(whole), Rotels and water.,\n \n3. Bring to a boil, \n\n4. Add potatoes, \n\n5. .Let simmer for 2-3 hours or till potatoes are falling apart and thickening the stew\n",
+					"desc" : "Green Chili is a classic south western dish. Full of flavor, Mild spice. Serve as a stew, over beans or wrapped in a tortilla.\n",
+					"color": "#A32929",
+					"image": "greenchili.jpg",
+					"nutrition" : "greenChilliNutrition.jpg",
+					"rew" : "Reviews \n",
+					"review" : "4.5 out of 5 \nOur family loves making this dish!! \n3 out of 5 \nA little to spicy for the kids \n5 out of 5 \nThe best Green Chili recipie we've tried \n\n\n\n\n\n  "
+					},
+					{
+					"name" : "The Pot",
+					"time" : "Prep Time: 20 Minutes \nCook Time: 30 minutes ",
+					"ing" : "Ingredients\n",
+					"ingredients" : "Old bay 1tbsp per qt of water \n1 lemon quartered \n1 bag red potatoes \npacakage sausage sliced \n6 ears of corn, halved ‣ 2 sticks of butter \nGarlic to taste \n ",
+					"oIng" : "Optional Ingredients\n ",
+					"optionalIngredients" : " Shrimp \nCrabMeat(notimitation)\n ",
+					"dir" : "Directions\n",
+					"directions" : "1.Boil water and old bay \n2. Turn down the heat \n3. Add potatoes and sausage \n4. Add optonal ingredients \n5. Cook appx 10 min \n6. And corn cobs \n7. Cook 7-8 min \n8. Drain water add butter and garlic\n",
+					"desc" : "“The Pot” is a dish I learned to make from a friend of mine. it has a Louisiana meets Delaware feel to it. Gumbo meets Crab soup. This dish is delicious with or with out the seafood, your Choice!\n",
+					"color": "#297A53",
+					"image": "thepot.jpg",
+					"nutrition" : "thePotNutrition.jpg",
+					"rew" : "Reviews \n",
+					"review" : "2.5 out of 5 \nWe did not enjoy this recipie, Will Not make it again \n5 out of 5 \nThis dish is awesome, we had a dinner party last night I served this to our guests and the loved it. \n4 out of 5 \nGreat alternitive to gumbo, very easy to make. \n\n\n\n\n\n  "
+					},
+				]	
+			}
+	};
+	
+	
+// local variables to help define label sizes accros platforms
+var pageHeight = Ti.Platform.displayCaps.platformHeight;
+var pageWidth = Ti.Platform.displayCaps.platformWidth;
+//  var to make views dynamic
+var rowHeight = (pageHeight - 62) /5;
+var rightAlign = pageWidth/25;
+var fontSize = 27;
+
+// initial window for app
+var mainWin = Ti.UI.createWindow({
+	title: "Mich's Recipies",
+	backgroundColor: ("#fff")
+	});
+
+// funtion to open window after something has been clicked
+
+var recOpen = function(source){
+	var i = source;
+	
+	recipieWin = Ti.UI.createWindow({
+	backgroundColor: ("#fff"),
+	title : json.recipies.myRecipies[i].name
+});
+var recView = Ti.UI.createScrollView({
+	title : source,
+	backgroundColor : json.recipies.myRecipies[i].color,
+	layout: "vertical",
+	width: pageWidth,
+	height: pageHeight + 50,// needed to make the page scroll past the bottom of the screen
+	contentWidth: pageWidth,//needed to maintain horizontal view 
+	showVerticalScrollIndicator: true,// needed to show scroll indicator
+	top: 0
+	
+});
+var recImage = Ti.UI.createImageView({
+	image : "images/" + json.recipies.myRecipies[i].image,
+	height : rowHeight,
+	width : rowHeight,
+	left : rightAlign,
+	top : 30
+});
+var cookLabel = Ti.UI.createLabel({
+	text : json.recipies.myRecipies[i].time,
+	font: {fontSize: 20, fontFamily: "Avenir Next" },
+	color: "white",
+	top: 10,
+	left : rightAlign
+});
+var descLabel = Ti.UI.createLabel({
+	text : json.recipies.myRecipies[i].desc,
+	font: {fontSize: 16, fontFamily: "Avenir Next" },
+	color: "white",
+	left : rightAlign
+});
+var ingLabel = Ti.UI.createLabel({
+	text : json.recipies.myRecipies[i].ing,
+	font: {fontSize: 20, fontFamily: "Avenir Next" },
+	color: "white",
+	left : rightAlign
+	
+});
+var ing2Label = Ti.UI.createLabel({
+	text : json.recipies.myRecipies[i].ingredients,
+	font: {fontSize: 16, fontFamily: "Avenir Next" },
+	color: "white",
+	left : rightAlign
+});
+var oIngLabel = Ti.UI.createLabel({
+	text : json.recipies.myRecipies[i].oIng,
+	font: {fontSize: 20, fontFamily: "Avenir Next" },
+	color: "white",
+	left : rightAlign
+});
+var oIng2Label = Ti.UI.createLabel({
+	text : json.recipies.myRecipies[i].optionalIngredients,
+	font: {fontSize: 16, fontFamily: "Avenir Next" },
+	color: "white",
+	left : rightAlign
+});
+var dirLabel = Ti.UI.createLabel({
+	text : json.recipies.myRecipies[i].dir,
+	font: {fontSize: 20, fontFamily: "Avenir Next" },
+	color: "white",
+	left : rightAlign
+});
+var dir2Label = Ti.UI.createLabel({
+	text : json.recipies.myRecipies[i].directions,
+	font: {fontSize: 16, fontFamily: "Avenir Next" },
+	color: "white",
+	left : rightAlign
+});
+var nutrImage = Ti.UI.createImageView({
+	image : "images/" + json.recipies.myRecipies[i].nutrition,
+	height : pageWidth - 20 ,
+	width : pageWidth - 20 ,
+	});
+var reviewLabel = Ti.UI.createLabel({
+	text : json.recipies.myRecipies[i].rew,
+	font: {fontSize: 20, fontFamily: "Avenir Next" },
+	color: "white",
+	left : rightAlign
+});
+
+var review2Label = Ti.UI.createLabel ({
+	text : json.recipies.myRecipies[i].review,
+	font: {fontSize: 16, fontFamily: "Avenir Next" },
+	color: "white",
+	left : rightAlign
+});
+recView.add(recImage, cookLabel,descLabel, ingLabel, ing2Label, oIngLabel, oIng2Label, dirLabel, dir2Label,nutrImage,reviewLabel, review2Label);
+recipieWin.add(recView);
+navWindow.openWindow(recipieWin);
+};	
+
+
+	
+// views for recipie options
+
+//	Green Chili
+var greenChili = Ti.UI.createView({
+	title: "0",
+	height: rowHeight,
+	width: pageWidth,
+	top : 0,
+	backgroundColor: "#A32929"
+});
+var greenChiliLabel = Ti.UI.createLabel({
+	text : "Greeen Chili",
+	title : "Green Chili",
+	font: {fontSize: fontSize, fontFamily: "Avenir Next" },
+	top : rowHeight / 3,
+	color: "white",
+	right: rightAlign
+	});
+var greenChiliPhoto = Ti.UI.createImageView({
+	image: "images/greenchili.jpg",
+	title: "Green Chili",
+	left :0,
+	height : rowHeight,
+	width : pageWidth/3
+});
+
+//	thePot
+var thePot = Ti.UI.createView({
+	title: "1",
+	height: rowHeight,
+	width: pageWidth,
+	top : greenChili.height,
+	backgroundColor: "#297A53"
+});
+var thePotLabel = Ti.UI.createLabel({
+	text : "The Pot",
+	title : "The Pot",
+	font: {fontSize: fontSize, fontFamily: "Avenir Next" },
+	top : rowHeight / 3,
+	color: "white",
+	right: rightAlign
+	});
+var thePotPhoto = Ti.UI.createImageView({
+	image: "images/thepot.jpg",
+	title: "The Pot",
+	left :0,
+	height : rowHeight,
+	width : pageWidth/3
+});
+
+//	jalapeno corn bread
+var jalapenoCornBread = Ti.UI.createView({
+	title: "Jalapeno Corn Bread",
+	height: rowHeight,
+	width: pageWidth,
+	top : greenChili.height + thePot.height,
+	backgroundColor: "#A16B36"
+});
+var jalapenoCornBreadLabel = Ti.UI.createLabel({
+	text : "Jal. Corn Bread",
+	title : "Jalapeno Corn Bread",
+	font: {fontSize: fontSize, fontFamily: "Avenir Next" },
+	top : rowHeight / 3,
+	color: "white",
+	right: rightAlign
+	});
+var jalapenoCornBreadPhoto = Ti.UI.createImageView({
+	image: "images/jalapenoCornBread.jpg",
+	title: "Jalapeno Corn Bread",
+	left :0,
+	height : rowHeight,
+	width : pageWidth/3
+});
+
+//	Tortilla Soup
+var tortillaSoup = Ti.UI.createView({
+	title: "Tortilla Soup",
+	height: rowHeight,
+	width: pageWidth,
+	top : greenChili.height + thePot.height +jalapenoCornBread.height,
+	backgroundColor: "#CFCB6E"
+});
+var tortillaSoupLabel = Ti.UI.createLabel({
+	text : "Tortilla Soup",
+	title : "Tortilla Soup",
+	font: {fontSize: fontSize, fontFamily: "Avenir Next" },
+	top : rowHeight / 3,
+	color: "white",
+	right: rightAlign
+	});
+var tortillaSoupPhoto = Ti.UI.createImageView({
+	image: "images/tortillaSoup.jpg",
+	title: "Tortilla Soup",
+	left :0,
+	height : rowHeight,
+	width : pageWidth/3
+});
+
+//	Chili Con Carne
+var chiliConCarne = Ti.UI.createView({
+	title: "Chili Con Carne",
+	height: rowHeight,
+	width: pageWidth,
+	top : greenChili.height + thePot.height +jalapenoCornBread.height + tortillaSoup.height,
+	backgroundColor: "#3796A4"
+});
+var chiliConCarneLabel = Ti.UI.createLabel({
+	text : "Chili Con Carne",
+	title : "Chili Con Carne",
+	font: {fontSize: fontSize, fontFamily: "Avenir Next" },
+	top : rowHeight / 3,
+	color: "white",
+	right: rightAlign
+	});
+var chiliConCarnePhoto = Ti.UI.createImageView({
+	image: "images/chiliConCarne.jpg",
+	title: "Chili Con Carne",
+	left :0,
+	height : rowHeight,
+	width : pageWidth/3
+});
+
+// creating a nav window
+var navWindow = Ti.UI.iOS.createNavigationWindow({
+	window: mainWin
+});
+
+// loading the json.js file 
+var loadJson = require("json");
+
+//adding labels and photos to views
+greenChili.add(greenChiliLabel,greenChiliPhoto);
+thePot.add(thePotLabel, thePotPhoto);
+jalapenoCornBread.add(jalapenoCornBreadLabel, jalapenoCornBreadPhoto);
+tortillaSoup.add(tortillaSoupLabel, tortillaSoupPhoto);
+chiliConCarne.add(chiliConCarneLabel, chiliConCarnePhoto);
+
+// adding views to windows
+mainWin.add(greenChili, thePot, jalapenoCornBread, tortillaSoup, chiliConCarne );
+
+
+
+// calling nav window
+navWindow.open();
+
+// event listener
+mainWin.addEventListener("click",function(event){
+	
+	recOpen(event.source.title);
+	
+});
