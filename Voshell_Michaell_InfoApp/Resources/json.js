@@ -17,7 +17,7 @@ var json = {
 					"image": "greenchili.jpg",
 					"nutrition" : "greenChilliNutrition.jpg",
 					"rew" : "Reviews \n",
-					"review" : "4.5 out of 5 \nOur family loves making this dish!! \n3 out of 5 \nA little to spicy for the kids \n5 out of 5 \nThe best Green Chili recipie we've tried \n\n\n\n\n\n  "
+					"review" : "4.5 out of 5  \nOur family loves making this dish!! \n\n3 out of 5 \nA little to spicy for the kids \n\n5 out of 5 \nThe best Green Chili recipie we've tried \n\n\n\n\n\n  "
 					},
 					{
 					"name" : "The Pot",
@@ -29,7 +29,7 @@ var json = {
 					"dir" : "Directions\n",
 					"directions" : "1.Boil water and old bay \n2. Turn down the heat \n3. Add potatoes and sausage \n4. Add optonal ingredients \n5. Cook appx 10 min \n6. And corn cobs \n7. Cook 7-8 min \n8. Drain water add butter and garlic\n",
 					"desc" : "“The Pot” is a dish I learned to make from a friend of mine. it has a Louisiana meets Delaware feel to it. Gumbo meets Crab soup. This dish is delicious with or with out the seafood, your Choice!\n",
-					"color": "#679C00",
+					"color": "#426E70",
 					"image": "thepot.jpg",
 					"nutrition" : "thePotNutrition.jpg",
 					"rew" : "Reviews \n",
@@ -109,15 +109,15 @@ var recView = Ti.UI.createScrollView({
 });
 var recImage = Ti.UI.createImageView({
 	image : "images/" + json.recipies.myRecipies[i].image,
-	height : rowHeight,
-	width : rowHeight,
+	height : rowHeight *2,
+	width : rowHeight * 2,
 	left : rightAlign,
 	top : 30
 });
 var cookLabel = Ti.UI.createLabel({
 	text : json.recipies.myRecipies[i].time,
 	font: {fontSize: 20, fontFamily: "Avenir Next" },
-	color: "white",
+	color: "yellow",
 	top: 10,
 	left : rightAlign
 });
@@ -130,7 +130,7 @@ var descLabel = Ti.UI.createLabel({
 var ingLabel = Ti.UI.createLabel({
 	text : json.recipies.myRecipies[i].ing,
 	font: {fontSize: 20, fontFamily: "Avenir Next"},
-	color: "white",
+	color: "yellow",
 	left : rightAlign
 	
 });
@@ -143,7 +143,7 @@ var ing2Label = Ti.UI.createLabel({
 var oIngLabel = Ti.UI.createLabel({
 	text : json.recipies.myRecipies[i].oIng,
 	font: {fontSize: 20, fontFamily: "Avenir Next" },
-	color: "white",
+	color: "yellow",
 	left : rightAlign
 });
 var oIng2Label = Ti.UI.createLabel({
@@ -155,7 +155,7 @@ var oIng2Label = Ti.UI.createLabel({
 var dirLabel = Ti.UI.createLabel({
 	text : json.recipies.myRecipies[i].dir,
 	font: {fontSize: 20, fontFamily: "Avenir Next" },
-	color: "white",
+	color: "yellow",
 	left : rightAlign
 });
 var dir2Label = Ti.UI.createLabel({
@@ -172,10 +172,9 @@ var nutrImage = Ti.UI.createImageView({
 var reviewLabel = Ti.UI.createLabel({
 	text : json.recipies.myRecipies[i].rew,
 	font: {fontSize: 20, fontFamily: "Avenir Next" },
-	color: "white",
+	color: "yellow",
 	left : rightAlign
 });
-
 var review2Label = Ti.UI.createLabel ({
 	text : json.recipies.myRecipies[i].review,
 	font: {fontSize: 16, fontFamily: "Avenir Next" },
@@ -186,10 +185,6 @@ recView.add(recImage, cookLabel,descLabel, ingLabel, ing2Label, oIngLabel, oIng2
 recipieWin.add(recView);
 navWindow.openWindow(recipieWin);
 };	
-
-
-
-
 	
 // views for recipie options
 
@@ -223,7 +218,7 @@ var thePot = Ti.UI.createView({
 	height: rowHeight,
 	width: pageWidth,
 	top : greenChili.height,
-	backgroundColor: "#679C00"
+	backgroundColor: "#426E70"
 });
 var thePotLabel = Ti.UI.createLabel({
 	text : "The Pot",
