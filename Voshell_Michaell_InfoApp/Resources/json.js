@@ -86,14 +86,35 @@ var json = {
 				]	
 			}
 	};
-	// funtion to open window after something has been clicked
 	
+	
+	var newItem = {
+					"name" : "Turd Cakes",
+					"time" : "Prep Time: 10 Minutes \nCook Time: 2 Hours\n ",
+					"ing" : "Ingredients\n",
+					"ingredients" : "2 lbs crap\n2 packages smoked sausage\n3 tbs chilli pepper\n1 pinch salt or to taste\n1 tsp cumin\n1 tsp cumin\n1 green pepper\n1 white onion\n2-3 Tbs garlic or to taste\n2-3 large cans tomatoes or\n1-2 large cans kidney beans\n1-2 cans black beans\n ",
+					"oIng" : "Optional Ingredients\n ",
+					"optionalIngredients" : "Butt cream\nPinto beans\nCrackers\nShredded cheese\n ",
+					"dir" : "Directions\n",
+					"directions" : "1. Cook ground meat with all spices, and fresh vegetables until meat is brown.\n2. Add green chillies and chopped meat cook 2-3 min\n3. Add beans and tomatoes bring to a boil reduce heat and simmer at least 1 hour but up to 4\n",
+					"desc" : "This Classic dish is a crowd pleaser, With almost as many ways to make it as there are number of people who like it. Here is our favorite way to make it. Enjoy it with sour cream cracker and shredded cheese.\n",
+					"color": "#FF9600",
+					"image": "chiliConCarne.jpg",
+					"nutrition" : "chiliNutrition.jpg",
+					"rew" : "Reviews \n",
+					"review" : "4 out of 5 \nEasy and delicious\n\n2 out of 5 \nToo Spicy\n\n4 out of 5 \nWe really enjoyed this recipie  \n\n\n\n\n\n  "
+				};
+	// funtion to open window after something has been clicked
+	json.recipies.myRecipies.push(newItem);
 	var recOpen = function(source){
 	var i = source;
 	console.log(source);
+	console.log(json.recipies.myRecipies[i].name);
+	
 	recipieWin = Ti.UI.createWindow({
 	backgroundColor: ("#fff"),
-	title : json.recipies.myRecipies[i].name
+	title : json.recipies.myRecipies[i].name,
+	
 });
 
 var recView = Ti.UI.createScrollView({
@@ -286,7 +307,7 @@ var tortillaSoupPhoto = Ti.UI.createImageView({
 
 //	Chili Con Carne
 var chiliConCarne = Ti.UI.createView({
-	title: "4",
+	title: "5",
 	height: rowHeight,
 	width: pageWidth,
 	top : greenChili.height + thePot.height +jalapenoCornBread.height + tortillaSoup.height,
@@ -294,7 +315,7 @@ var chiliConCarne = Ti.UI.createView({
 });
 var chiliConCarneLabel = Ti.UI.createLabel({
 	text : "Chili Con Carne",
-	title : "4",
+	title : "5",
 	font: {fontSize: fontSize, fontFamily: "Avenir Next" },
 	top : rowHeight / 3,
 	color: "white",
@@ -302,7 +323,7 @@ var chiliConCarneLabel = Ti.UI.createLabel({
 	});
 var chiliConCarnePhoto = Ti.UI.createImageView({
 	image: "images/chiliConCarne.jpg",
-	title: "4",
+	title: "5",
 	left :0,
 	height : rowHeight,
 	width : pageWidth/3

@@ -1,0 +1,44 @@
+// background color
+Titanium.UI.setBackgroundColor('#fff');
+
+
+
+	
+// local variables to help define label sizes accros platforms
+var pageHeight = Ti.Platform.displayCaps.platformHeight;
+var pageWidth = Ti.Platform.displayCaps.platformWidth;
+
+
+// initial window for app
+var mainWin = Ti.UI.createWindow({
+	title: "Check Book",
+	backgroundColor: ("#fff")
+	});
+// view
+
+var view1 = Ti.UI.createView({
+	width : pageWidth,
+	height : pageHeight,
+	backgroundColor : "#D2B48C",
+	opacity : .7
+	
+});
+
+var userName = Ti.UI.createTextField({
+	top : pageHeight \ 3,
+	left : pageWidth \ 5,
+	width : 100,
+	height : 10,
+	backgroundColor: "white",
+	opacity : .5,
+	hintText: "Username"
+	
+});
+view1.add(userName);
+mainWin.add(view1);
+// creating a nav window
+var navWindow = Ti.UI.iOS.createNavigationWindow({
+	window: mainWin
+});
+
+navWindow.open();
