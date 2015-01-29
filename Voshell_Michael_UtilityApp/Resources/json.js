@@ -8,11 +8,23 @@ var pageWidth = Ti.Platform.displayCaps.platformWidth;
 // json array
 var json = {
 			"checkbook" :{
-					Headtitle: " Checking",
+					Headtitle: " Beginning Balance $1509.23",
 					Foottitle: " Total",
 					"checking":
 				[
 					{
+						"date" : " 11/11/14",
+						"amount" : "6.10",
+						"merchant" : "Acme",
+						"memo" : "Groceries "
+					 },
+					 {
+					 	
+						"date" : " 11/1/14",
+						"amount" : "27.00",
+						"merchant" : "Walmart",
+						"memo" : " "
+					 },{
 						"date" : " 11/11/14",
 						"amount" : "6.10",
 						"merchant" : "Acme",
@@ -29,6 +41,33 @@ var json = {
 					 	
 						"date" : " 1/3/15",
 						"amount" : "37.50",
+						"merchant" : "Texaco",
+						"memo" : "Gas",
+					 },
+					 {
+					 	
+						"date" : " 1/3/15",
+						"amount" : "37.50",
+						"merchant" : "Texaco",
+						"memo" : "Gas",
+					 },
+					 {
+						"date" : " 1/11/15",
+						"amount" : "16.16",
+						"merchant" : "Acme",
+						"memo" : "Groceries "
+					 },
+					 {
+					 	
+						"date" : " 1/12/15",
+						"amount" : "25.00",
+						"merchant" : "Wawa",
+						"memo" : " "
+					 },
+					 {
+					 	
+						"date" : " 1/13/15",
+						"amount" : "39.27",
 						"merchant" : "Texaco",
 						"memo" : "Gas",
 					 },
@@ -100,7 +139,7 @@ var memoLabel = Ti.UI.createLabel ({
 
 // label at the bottom for the total
 var totalLabel = Ti.UI.createLabel({
-	text : "Total" + " $ " + sum,
+	text : "Ending Balance" + " $ " + (parseFloat(1509.23) - sum),
 	color: "black"
  });
  
